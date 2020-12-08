@@ -14,7 +14,7 @@ public class Generator {
      // 待生成的表名，注意是覆盖更新
      private static String[] tableNames;
 
-     //表名，一次可以设置多个。表字段全部小写，下划线隔开！
+     //表名，一次可以设置多个。每个表的字段名，建议全部小写，单词之间下划线隔开！
      static{
         tableNames = new String[]{
                 "pt_soldier_info_review",
