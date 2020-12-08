@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chuck.core.dao.mapper.PtSoldierInfoReviewMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.chuck.core.dao.entity.PtSoldierInfoReview">
+        <result column="Soldier_Info_Id" property="soldierInfoId" />
+        <result column="Soldier_Name" property="soldierName" />
+        <result column="Soldier_Gender" property="soldierGender" />
+        <result column="Soldier_Marital_Status" property="soldierMaritalStatus" />
+        <result column="Soldier_Bithday" property="soldierBithday" />
+        <result column="Soldier_Nation" property="soldierNation" />
+        <result column="Soldier_Political_Outlook" property="soldierPoliticalOutlook" />
+        <result column="Soldier_Education_Level" property="soldierEducationLevel" />
+        <result column="Soldier_Id_No" property="soldierIdNo" />
+        <result column="Soldier_Hukou_Type" property="soldierHukouType" />
+        <result column="Soldier_Hukou_Province" property="soldierHukouProvince" />
+        <result column="Soldier_Hukou_City" property="soldierHukouCity" />
+        <result column="Soldier_Hukou_District" property="soldierHukouDistrict" />
+        <result column="Soldier_Hukou_Street" property="soldierHukouStreet" />
+        <result column="Soldier_Hukou_Village" property="soldierHukouVillage" />
+        <result column="Soldier_Tel" property="soldierTel" />
+        <result column="Soldier_Address" property="soldierAddress" />
+        <result column="Soldier_Type" property="soldierType" />
+        <result column="Soldier_Jiuye" property="soldierJiuye" />
+        <result column="Soldier_Xgzdw" property="soldierXgzdw" />
+        <result column="Soldier_Xgzdw_Type" property="soldierXgzdwType" />
+        <result column="Soldier_Ruwushijian" property="soldierRuwushijian" />
+        <result column="Soldier_Ruwuhukou" property="soldierRuwuhukou" />
+        <result column="Soldier_Retire_Time" property="soldierRetireTime" />
+        <result column="Soldier_Retire_No" property="soldierRetireNo" />
+        <result column="Soldier_Apply_Glory_Card_Time" property="soldierApplyGloryCardTime" />
+        <result column="Soldier_Hang_Glory_Card" property="soldierHangGloryCard" />
+        <result column="Soldier_Resettlement_Place" property="soldierResettlementPlace" />
+        <result column="Soldier_Housing_Situation" property="soldierHousingSituation" />
+        <result column="Soldier_Medical_Insurance" property="soldierMedicalInsurance" />
+        <result column="Soldier_Endowment_Insurance" property="soldierEndowmentInsurance" />
+        <result column="Soldier_Xsgjfxbzj" property="soldierXsgjfxbzj" />
+        <result column="Soldier_Xscjrlxbt" property="soldierXscjrlxbt" />
+        <result column="Soldier_Social_Assistance" property="soldierSocialAssistance" />
+        <result column="Soldier_Removed" property="soldierRemoved" />
+        <result column="Soldier_Removed_Reason" property="soldierRemovedReason" />
+        <result column="Soldier_Removed_Time" property="soldierRemovedTime" />
+        <result column="Soldier_Creator_Id" property="soldierCreatorId" />
+        <result column="Soldier_CTime" property="soldierCtime" />
+        <result column="Soldier_UTime" property="soldierUtime" />
+        <result column="Soldier_Azd_Province" property="soldierAzdProvince" />
+        <result column="Soldier_Azd_City" property="soldierAzdCity" />
+        <result column="Soldier_Azd_District" property="soldierAzdDistrict" />
+        <result column="Next_Reviewer_Area_Code" property="nextReviewerAreaCode" />
+        <result column="Review_Status" property="reviewStatus" />
+        <result column="Review_Type" property="reviewType" />
+        <result column="Reject_Msg" property="rejectMsg" />
+        <result column="Reviewer_Id" property="reviewerId" />
+        <result column="Review_Time" property="reviewTime" />
+    </resultMap>
+</mapper>

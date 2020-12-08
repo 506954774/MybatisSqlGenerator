@@ -41,47 +41,140 @@ public class ${entity} implements Serializable {
 <% } %>
 
 
-<% /** -----------BEGIN 构造插入的sql,写在一个注释里 by：Chuck----------- **/ %>
+<% /** -----------BEGIN 构造mybatis里常用的sql,写在一个注释里 by：Chuck----------- **/ %>
 /**
-自动生成mybatis里的insert语句模板:
+自动生成${table.name}表相关的，mybatis里的insert语句:
 
-        INSERT INTO
-          ${table.name}(
-            <% for(field in table.fields){ %>
-             ${field.name},
-            <% } %>
-          )
-          VALUES (
-         <% for(field in table.fields){ %>
-         <%  var typeClassName = type.name(field.propertyType); %>
-               <%
-                var type =field.propertyType;
-                var jdbcType ='';
-                 if(type =="String" ){
-                    jdbcType =',jdbcType=VARCHAR';
-                 }
-                 if(type=="Integer"){
-                    jdbcType =',jdbcType=INTEGER';
-                 }
-                 if(type=='long'){
-                    jdbcType =',jdbcType=BIGINT';
-                 }
-                 if(type=='Long'){
-                    jdbcType =',jdbcType=BIGINT';
-                 }
-                 if(type=='Date'){
-                    jdbcType =',jdbcType=TIMESTAMP';
-                 }
-                 if(type=='LocalDate'){
-                    jdbcType =',jdbcType=TIMESTAMP';
-                 }
-                 %>
-              #{${field.propertyName}${jdbcType}},
-         <% } %>
-        )
+    INSERT INTO
+      ${table.name}(
+        <% for(field in table.fields){ %>
+         ${field.name}<%var commaPlaceHolder =fieldLP.last?'':',';%>${commaPlaceHolder}
+        <% } %>
+      )
+      VALUES
+      (
+     <% for(field in table.fields){ %>
+           <%
+            var type =field.propertyType;
+            var jdbcType ='';
+             if(type =="String" ){
+                jdbcType =',jdbcType=VARCHAR';
+             }
+             if(type=="Integer"){
+                jdbcType =',jdbcType=INTEGER';
+             }
+             if(type=='long'){
+                jdbcType =',jdbcType=BIGINT';
+             }
+             if(type=='Long'){
+                jdbcType =',jdbcType=BIGINT';
+             }
+             if(type=='Date'){
+                jdbcType =',jdbcType=TIMESTAMP';
+             }
+             if(type=='LocalDate'){
+                jdbcType =',jdbcType=TIMESTAMP';
+             }
+             %>
+          #{${field.propertyName}${jdbcType}}<%var commaPlaceHolder =fieldLP.last?'':',';%>${commaPlaceHolder}
+     <% } %>
+      )
 
 **/
-<% /** -----------END 构造插入的sql,写在一个注释里 by：Chuck----------- **/ %>
+
+/**
+自动生成${table.name}表相关的，mybatis里的批量insert语句:
+
+    INSERT INTO
+      ${table.name}(
+        <% for(field in table.fields){ %>
+         ${field.name}<%var commaPlaceHolder =fieldLP.last?'':',';%>${commaPlaceHolder}
+        <% } %>
+      )
+    VALUES
+      (
+     <% for(field in table.fields){ %>
+     <%  var typeClassName = type.name(field.propertyType); %>
+           <%
+            var type =field.propertyType;
+            var jdbcType ='';
+             if(type =="String" ){
+                jdbcType =',jdbcType=VARCHAR';
+             }
+             if(type=="Integer"){
+                jdbcType =',jdbcType=INTEGER';
+             }
+             if(type=='long'){
+                jdbcType =',jdbcType=BIGINT';
+             }
+             if(type=='Long'){
+                jdbcType =',jdbcType=BIGINT';
+             }
+             if(type=='Date'){
+                jdbcType =',jdbcType=TIMESTAMP';
+             }
+             if(type=='LocalDate'){
+                jdbcType =',jdbcType=TIMESTAMP';
+             }
+             %>
+          #{item.${field.propertyName}${jdbcType}}<%var commaPlaceHolder =fieldLP.last?'':',';%>${commaPlaceHolder}
+     <% } %>
+      )
+      </foreach>
+
+**/
+
+/**
+自动生成${table.name}表相关的，mybatis里的update语句:
+
+    UPDATE
+        ${table.name}
+    SET
+    <% for(field in table.fields){ %>
+       <%
+        var type =field.propertyType;
+        var jdbcType ='';
+         if(type =="String" ){
+            jdbcType =',jdbcType=VARCHAR';
+         }
+         if(type=="Integer"){
+            jdbcType =',jdbcType=INTEGER';
+         }
+         if(type=='long'){
+            jdbcType =',jdbcType=BIGINT';
+         }
+         if(type=='Long'){
+            jdbcType =',jdbcType=BIGINT';
+         }
+         if(type=='Date'){
+            jdbcType =',jdbcType=TIMESTAMP';
+         }
+         if(type=='LocalDate'){
+            jdbcType =',jdbcType=TIMESTAMP';
+         }
+         %>
+        <if test="${field.propertyName} != null">
+          ${field.name} = #{${field.propertyName}${jdbcType}}<%var commaPlaceHolder =fieldLP.last?'':',';%>${commaPlaceHolder}
+        </if>
+    <% } %>
+    WHERE
+    1==1
+**/
+
+/**
+自动生成${table.name}表相关的，mybatis里的查询语句:
+
+    SELECT
+        <% for(field in table.fields){ %>
+      ${field.name}  ${field.propertyName}<%var commaPlaceHolder =fieldLP.last?'':',';%>${commaPlaceHolder}
+        <% } %>
+    FROM
+      ${table.name}
+    WHERE
+      1==1
+
+**/
+<% /** -----------END 构造mybatis里常用的sql,写在一个注释里 by：Chuck----------- **/ %>
 
 
 
