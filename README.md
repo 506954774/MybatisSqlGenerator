@@ -1,8 +1,7 @@
 # MybatisSqlGenerator
  本项目，适用于尚未集成mybatis-plus的项目，作为单独运行的工具工程，能迅速生成基于mybatis的单表的常用sql语句，如插入，批量插入，更新，批量查找。
 
- ## 添加数据库配置:</br>
- ## Generator.java : </br>
+ ## 1，添加数据库配置:</br>
   ```Java
 public class Generator {
 
@@ -26,7 +25,7 @@ public class Generator {
 
 
 
-  ## 执行Generator的main方法，将通过Beetl得到pojo类，生成的sql（全部自动生成）写在了注释了。示例：com.chuck.core.dao.entity.PtSoldierInfoReview.java : </br>
+  ## 2，执行Generator的main方法，将通过Beetl得到pojo类，生成的sql（全部自动生成）写在了注释了。示例：com.chuck.core.dao.entity.PtSoldierInfoReview.java : </br>
   ```Java
   package com.chuck.core.dao.entity;
   import com.baomidou.mybatisplus.extension.activerecord.Model;
