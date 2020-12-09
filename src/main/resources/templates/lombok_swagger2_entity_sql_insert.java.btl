@@ -92,6 +92,7 @@ public class ${entity} implements Serializable {
         <% } %>
       )
     VALUES
+      <foreach collection="list" item="item" separator=",">
       (
      <% for(field in table.fields){ %>
      <%  var typeClassName = type.name(field.propertyType); %>
