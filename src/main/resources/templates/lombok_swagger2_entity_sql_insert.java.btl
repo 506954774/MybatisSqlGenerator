@@ -45,6 +45,9 @@ public class ${entity} implements Serializable {
 /**
 自动生成${table.name}表相关的，mybatis里的insert语句:
 
+  void insert(${entity} params);
+
+  <insert id="insert" parameterType="${package.Entity}.${entity}">
     INSERT INTO
       ${table.name}(
         <% for(field in table.fields){ %>
@@ -79,12 +82,16 @@ public class ${entity} implements Serializable {
           #{${field.propertyName}${jdbcType}}<%var commaPlaceHolder =fieldLP.last?'':',';%>${commaPlaceHolder}
      <% } %>
       )
+    </insert>
 
 **/
 
 /**
 自动生成${table.name}表相关的，mybatis里的批量insert语句:
 
+   void insertList( @Param("list" )ArrayList<${entity}> params);
+
+   <insert id="insertList" parameterType="java.util.List">
     INSERT INTO
       ${table.name}(
         <% for(field in table.fields){ %>
@@ -122,12 +129,16 @@ public class ${entity} implements Serializable {
      <% } %>
       )
       </foreach>
+    </insert>
 
 **/
 
 /**
 自动生成${table.name}表相关的，mybatis里的update语句:
 
+  void update(${entity} params);
+
+  <update id="update" parameterType=""${package.Entity}.${entity}"">
     UPDATE
         ${table.name}
     SET
@@ -160,11 +171,15 @@ public class ${entity} implements Serializable {
     <% } %>
     WHERE
     1==1
+   </update>
 **/
 
 /**
 自动生成${table.name}表相关的，mybatis里的查询语句:
 
+  List<${entity}> queryList();
+
+  <select id="queryList" resultType=""${package.Entity}.${entity}"">
     SELECT
         <% for(field in table.fields){ %>
       ${field.name}  ${field.propertyName}<%var commaPlaceHolder =fieldLP.last?'':',';%>${commaPlaceHolder}
@@ -173,6 +188,7 @@ public class ${entity} implements Serializable {
       ${table.name}
     WHERE
       1==1
+   </select>
 
 **/
 <% /** -----------END 构造mybatis里常用的sql,写在一个注释里 by：Chuck----------- **/ %>
